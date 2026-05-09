@@ -58,10 +58,10 @@
             //                    | GUI |     | SPC   |        | ENT   |     | ALT |
 
             bindings = <
-&trans  &kp N1        &kp N2           &kp N3        &kp N4        &kp N5          &trans  &trans  &kp N6    &kp N7    &kp N8           &kp N9           &kp N0           &trans
-&trans  &bt BT_SEL 0  &bt BT_SEL 1     &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4    &trans  &trans  &kp LEFT  &kp DOWN  &kp UP           &kp RIGHT        &rgb_ug RGB_EFR  &rgb_ug RGB_EFF
-&trans  &bt BT_CLR    &rgb_ug RGB_TOG  &sys_reset    &bootloader   &studio_unlock                  &trans    &trans    &rgb_ug RGB_BRD  &rgb_ug RGB_BRI  &rgb_ug RGB_SPD  &rgb_ug RGB_SPI
-                                       &trans        &trans        &kp SPACE                       &trans    &trans    &trans
+&tog 3  &trans  &trans           &trans      &trans       &trans          &trans  &trans  &mmv MOVE_DOWN  &mmv MOVE_UP  &mmv MOVE_LEFT  &mmv MOVE_RIGHT  &trans  &trans
+&trans  &trans  &trans           &trans      &trans       &trans          &trans  &trans  &kp LEFT        &kp DOWN      &kp UP          &kp RIGHT        &trans  &trans
+&trans  &trans  &rgb_ug RGB_TOG  &sys_reset  &bootloader  &studio_unlock                  &msc SCRL_DOWN  &msc SCRL_UP  &trans          &trans           &trans  &trans
+                                 &trans      &trans       &kp SPACE                       &trans          &mkp LCLK     &mkp RCLK
             >;
         };
 
@@ -75,10 +75,20 @@
             //                    | GUI |     | SPC |               | ENT |     | ALT |
 
             bindings = <
-&kp GRAVE  &kp EXCL        &kp AT           &kp HASH      &kp DLLR        &kp PRCNT  &trans  &trans  &kp CARET  &kp AMPS   &kp ASTRK  &kp LPAR  &kp RPAR  &trans
-&trans     &mmv MOVE_LEFT  &mmv MOVE_RIGHT  &mmv MOVE_UP  &mmv MOVE_DOWN  &trans     &trans  &trans  &kp MINUS  &kp EQUAL  &kp LBKT   &kp RBKT  &kp BSLH  &kp SINGLE_QUOTE
-&trans     &trans          &trans           &trans        &trans          &trans                     &kp UNDER  &kp PLUS   &kp LBRC   &kp RBRC  &kp PIPE  &kp TILDE
-                                            &mkp RCLK     &mkp LCLK       &trans                     &trans     &trans     &trans
+&kp TILDE  &kp EXCL      &kp AT        &kp HASH      &kp DLLR      &kp PRCNT     &trans  &trans  &kp CARET         &kp AMPS           &kp ASTRK     &kp LPAR      &kp RPAR      &kp MINUS
+&kp GRAVE  &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp NUMBER_4  &kp NUMBER_5  &trans  &trans  &kp NUMBER_6      &kp NUMBER_7       &kp NUMBER_8  &kp NUMBER_9  &kp NUMBER_0  &kp SINGLE_QUOTE
+&trans     &trans        &trans        &trans        &trans        &trans                        &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &none         &none         &none         &kp BACKSLASH
+                                       &mkp RCLK     &mkp LCLK     &trans                        &trans            &trans             &trans
+            >;
+        };
+
+        layer_hardware {
+            display-name = "NUMBER";
+            bindings = <
+&trans  &kp N1        &kp N2           &kp N3        &kp N4        &kp N5          &trans  &trans  &kp N6    &kp N7    &kp N8           &kp N9           &kp N0           &trans
+&trans  &bt BT_SEL 0  &bt BT_SEL 1     &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4    &trans  &trans  &kp LEFT  &kp DOWN  &kp UP           &kp RIGHT        &rgb_ug RGB_EFR  &rgb_ug RGB_EFF
+&trans  &bt BT_CLR    &rgb_ug RGB_TOG  &sys_reset    &bootloader   &studio_unlock                  &trans    &trans    &rgb_ug RGB_BRD  &rgb_ug RGB_BRI  &rgb_ug RGB_SPD  &rgb_ug RGB_SPI
+                                       &trans        &trans        &kp SPACE                       &trans    &trans    &trans
             >;
         };
 
@@ -132,8 +142,8 @@
             >;
         };
 
-        extra_layer_6 {
-            display-name = "EXTRA 6";
+        extra_hardware {
+            display-name = "EXTRA HW";
             bindings = <
 &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
