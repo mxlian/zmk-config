@@ -49,7 +49,7 @@
         };
 
         lower_layer {
-            display-name = "NUMBER";
+            display-name = "NAVIGATION";
 
             // -----------------------------------------------------------------------------------------
             // |  TAB |  1  |  2  |  3  |  4  |  5    |  LCTRL | RCTRL |  6  |  7  |  8  |  9  |  0  | BSPC |
@@ -78,17 +78,17 @@
 &kp TILDE  &kp EXCL      &kp AT        &kp HASH      &kp DLLR      &kp PRCNT     &trans  &trans  &kp CARET         &kp AMPS           &kp ASTRK     &kp LPAR      &kp RPAR      &kp MINUS
 &kp GRAVE  &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp NUMBER_4  &kp NUMBER_5  &trans  &trans  &kp NUMBER_6      &kp NUMBER_7       &kp NUMBER_8  &kp NUMBER_9  &kp NUMBER_0  &kp SINGLE_QUOTE
 &trans     &trans        &trans        &trans        &trans        &trans                        &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &none         &none         &none         &kp BACKSLASH
-                                       &mkp RCLK     &mkp LCLK     &trans                        &trans            &trans             &trans
+                                       &trans        &trans        &trans                        &trans            &trans             &trans
             >;
         };
 
         layer_hardware {
-            display-name = "NUMBER";
+            display-name = "HARDWR";
             bindings = <
-&trans  &kp N1        &kp N2           &kp N3        &kp N4        &kp N5          &trans  &trans  &kp N6    &kp N7    &kp N8           &kp N9           &kp N0           &trans
-&trans  &bt BT_SEL 0  &bt BT_SEL 1     &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4    &trans  &trans  &kp LEFT  &kp DOWN  &kp UP           &kp RIGHT        &rgb_ug RGB_EFR  &rgb_ug RGB_EFF
-&trans  &bt BT_CLR    &rgb_ug RGB_TOG  &sys_reset    &bootloader   &studio_unlock                  &trans    &trans    &rgb_ug RGB_BRD  &rgb_ug RGB_BRI  &rgb_ug RGB_SPD  &rgb_ug RGB_SPI
-                                       &trans        &trans        &kp SPACE                       &trans    &trans    &trans
+&tog 3  &none         &none            &none         &none         &none           &trans  &trans  &kp C_BRIGHTNESS_INC  &kp LS(F7)  &none            &none            &none            &none
+&none   &bt BT_SEL 0  &bt BT_SEL 1     &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4    &trans  &trans  &none                 &none       &none            &none            &rgb_ug RGB_EFR  &rgb_ug RGB_EFF
+&none   &bt BT_CLR    &rgb_ug RGB_TOG  &sys_reset    &bootloader   &studio_unlock                  &trans                &trans      &rgb_ug RGB_BRD  &rgb_ug RGB_BRI  &rgb_ug RGB_SPD  &rgb_ug RGB_SPI
+                                       &none         &trans        &kp SPACE                       &trans                &trans      &trans
             >;
         };
 
