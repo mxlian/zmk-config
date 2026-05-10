@@ -6,6 +6,7 @@
 
 /dts-v1/;
 #include <nordic/nrf52840_qiaa.dtsi>
+#include <behaviors/mouse_move.dtsi>
 #include <dt-bindings/zmk/matrix_transform.h>
 
 #include "corne_choc_pro-layouts.dtsi"
