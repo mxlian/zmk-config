@@ -58,10 +58,10 @@
             //                    | GUI |     | SPC   |        | ENT   |     | ALT |
 
             bindings = <
-&tog 3  &trans  &trans           &trans      &trans       &trans          &trans  &trans  &mmv MOVE_DOWN  &mmv MOVE_UP  &mmv MOVE_LEFT  &mmv MOVE_RIGHT  &trans  &trans
-&trans  &trans  &trans           &trans      &trans       &trans          &trans  &trans  &kp LEFT        &kp DOWN      &kp UP          &kp RIGHT        &trans  &trans
-&trans  &trans  &rgb_ug RGB_TOG  &sys_reset  &bootloader  &studio_unlock                  &msc SCRL_DOWN  &msc SCRL_UP  &trans          &trans           &trans  &trans
-                                 &trans      &trans       &kp SPACE                       &trans          &mkp LCLK     &mkp RCLK
+&tog 3  &trans  &trans           &trans      &trans  &trans          &trans  &trans  &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_UP  &mmv MOVE_RIGHT  &trans  &trans
+&trans  &trans  &trans           &trans      &trans  &trans          &trans  &trans  &kp LEFT        &kp DOWN        &kp UP        &kp RIGHT        &trans  &trans
+&trans  &trans  &rgb_ug RGB_TOG  &sys_reset  &trans  &studio_unlock                  &trans          &msc SCRL_DOWN  &msc SCRL_UP  &trans           &trans  &trans
+                                 &trans      &trans  &kp SPACE                       &trans          &mkp LCLK       &mkp RCLK
             >;
         };
 
@@ -75,20 +75,20 @@
             //                    | GUI |     | SPC |               | ENT |     | ALT |
 
             bindings = <
-&kp TILDE  &kp EXCL      &kp AT        &kp HASH      &kp DLLR      &kp PRCNT     &trans  &trans  &kp CARET         &kp AMPS           &kp ASTRK     &kp LPAR      &kp RPAR      &kp MINUS
-&kp GRAVE  &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp NUMBER_4  &kp NUMBER_5  &trans  &trans  &kp NUMBER_6      &kp NUMBER_7       &kp NUMBER_8  &kp NUMBER_9  &kp NUMBER_0  &kp SINGLE_QUOTE
-&trans     &trans        &trans        &trans        &trans        &trans                        &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &none         &none         &none         &kp BACKSLASH
-                                       &trans        &trans        &trans                        &trans            &trans             &trans
+&kp GRAVE  &kp NUMBER_1  &kp NUMBER_2  &kp N3        &kp NUMBER_4  &kp N5       &trans  &trans  &kp NUMBER_6      &kp N7             &kp N8        &kp N9                &kp N0                 &kp MINUS
+&kp TILDE  &kp EXCL      &kp AT_SIGN   &kp NUMBER_3  &kp DOLLAR    &kp PERCENT  &trans  &trans  &kp CARET         &kp AMPERSAND      &kp ASTERISK  &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp SINGLE_QUOTE
+&trans     &trans        &trans        &trans        &trans        &trans                       &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &none         &none                 &kp EQUAL              &kp BACKSLASH
+                                       &trans        &trans        &trans                       &trans            &trans             &trans
             >;
         };
 
         layer_hardware {
             display-name = "HARDWR";
             bindings = <
-&tog 3  &none         &none            &none         &none         &none           &trans  &trans  &kp C_BRIGHTNESS_INC  &kp LS(F7)  &none            &none            &none            &none
-&none   &bt BT_SEL 0  &bt BT_SEL 1     &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4    &trans  &trans  &none                 &none       &none            &none            &rgb_ug RGB_EFR  &rgb_ug RGB_EFF
-&none   &bt BT_CLR    &rgb_ug RGB_TOG  &sys_reset    &bootloader   &studio_unlock                  &trans                &trans      &rgb_ug RGB_BRD  &rgb_ug RGB_BRI  &rgb_ug RGB_SPD  &rgb_ug RGB_SPI
-                                       &none         &trans        &kp SPACE                       &trans                &trans      &trans
+&tog 3  &kp K_MUTE    &kp C_VOLUME_DOWN  &kp C_VOLUME_UP  &kp C_MUTE    &kp C_BRIGHTNESS_DEC  &trans  &trans  &kp C_BRIGHTNESS_INC  &kp LS(F7)  &none            &none            &none            &none
+&none   &bt BT_SEL 0  &bt BT_SEL 1       &bt BT_SEL 2     &bt BT_SEL 3  &bt BT_SEL 4          &trans  &trans  &none                 &none       &none            &none            &rgb_ug RGB_EFR  &rgb_ug RGB_EFF
+&none   &bt BT_CLR    &rgb_ug RGB_TOG    &sys_reset       &bootloader   &studio_unlock                        &trans                &trans      &rgb_ug RGB_BRD  &rgb_ug RGB_BRI  &rgb_ug RGB_SPD  &rgb_ug RGB_SPI
+                                         &none            &trans        &kp SPACE                             &trans                &trans      &trans
             >;
         };
 
