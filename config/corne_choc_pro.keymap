@@ -80,6 +80,17 @@
             bindings = <&kp>, <&sk>;
             #binding-cells = <2>;
         };
+
+        // ThinkPad-style middle button: tap = middle click, hold = scroll mode.
+        // While held, the mmv keys (I/J/K/L in NAV layer) produce scroll instead of mouse move.
+        mclk_scroll: mclk_scroll {
+            compatible = "zmk,behavior-hold-tap";
+            label = "MCLK_SCROLL";
+            flavor = "tap-preferred";
+            tapping-term-ms = <200>;
+            bindings = <&mo>, <&mkp>;
+            #binding-cells = <2>;
+        };
     };
 
     conditional_layers {
@@ -164,7 +175,7 @@
 &kp TAB  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans     &trans          &mmv MOVE_UP    &trans           &trans     &kp DELETE
 &trans   &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans     &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &trans     &msc SCRL_UP
 &trans   &trans  &trans  &trans  &trans  &trans                  &trans     &kp LEFT        &kp DOWN        &kp UP           &kp RIGHT  &msc SCRL_DOWN
-                         &trans  &trans  &trans                  &mkp LCLK  &mkp MCLK       &mkp RCLK
+                         &trans  &trans  &trans                  &mkp LCLK  &mclk_scroll 5 MCLK  &mkp RCLK
             >;
         };
 
@@ -233,13 +244,24 @@
             >;
         };
 
-        extra_layer_2 {
-            display-name = "EXTRA 2";
+        scroll_layer {
+            display-name = "SCROLL";
+
+            // Active while MCLK is held (ThinkPad-style scroll mode).
+            // Overrides the mmv keys (I/J/K/L) with scroll equivalents.
+            // All other positions transparent, falling through to NAV layer.
+            //
+            // ---------------------------------------------------------------------------------
+            // |  _  |  _  |  _  |  _  |  _  |  _  |       |       |  _  |  _  | scrl↑ |  _  |  _  |  _  |
+            // |  _  |  _  |  _  |  _  |  _  |  _  |       |       |  _  | scrl←| scrl↓ | scrl→|  _  |  _  |
+            // |  _  |  _  |  _  |  _  |  _  |  _  |               |  _  |  _  |  _  |  _  |  _  |  _  |
+            //                   |  _  |  _  |  _  |               |  _  |  _  |  _  |
+
             bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans                  &trans  &trans  &trans  &trans  &trans  &trans
-                        &trans  &trans  &trans                  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans           &msc SCRL_UP    &trans            &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &msc SCRL_LEFT   &msc SCRL_DOWN  &msc SCRL_RIGHT   &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans                  &trans  &trans           &trans          &trans            &trans  &trans
+                        &trans  &trans  &trans                  &trans  &trans           &trans
             >;
         };
 
