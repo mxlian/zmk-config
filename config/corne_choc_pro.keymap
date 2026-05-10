@@ -150,21 +150,23 @@
             // Mouse-T inverted on right hand:  I = mmv↑   J / K / L = mmv ← ↓ →
             // Vim row of arrows on right bottom:  M / , / . / / = ← ↓ ↑ →
             // Page nav frames the mouse-T:  outer = PgUp/PgDn, inner = Home/End
-            // Precision (slow mouse): hold D (pos 17, left middle finger) -> layer 5
             // Right thumbs: LCLK / MCLK / RCLK
             // Top-left = monitor layout switch (Shift+F7, caught by i3).
             // HARDWARE layer is reached by holding LWR + RSE thumbs together
             // (conditional_layers), so no toggle key needed here.
+            // Mouse precision: cursor accelerates from a slow start; tap briefly
+            // for fine pixel movement, hold longer to fly across the screen
+            // (tuned via &mmv override in corne_choc_pro.dtsi).
             //
             // ---------------------------------------------------------------------------------------
             // | S+F7 |  _  |  _  |  _  |  _  |  _  |       |       | PgUp |  _  | mmv↑ |  _  | PgDn |  _  |
-            // |  _   |  _  |  _  | prc |  _  |  _  |       |       | Home | mmv←| mmv↓ | mmv→| End  |  _  |
+            // |  _   |  _  |  _  |  _  |  _  |  _  |       |       | Home | mmv←| mmv↓ | mmv→| End  |  _  |
             // |  _   |  _  |  _  |  _  |  _  |  _  |               |  _   |  ←  |  ↓   |  ↑  |  →   |  _  |
             //                    |  _  |  _  | LWR |               | LCLK | MCLK| RCLK |
 
             bindings = <
 &kp LS(F7)  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &kp PG_UP  &trans          &mmv MOVE_UP    &trans           &kp PG_DN  &trans
-&trans  &trans  &trans  &mo 5   &trans  &trans  &trans  &trans  &kp HOME   &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &kp END    &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &kp HOME   &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &kp END    &trans
 &trans  &trans  &trans  &trans  &trans  &trans                  &trans     &kp LEFT        &kp DOWN        &kp UP           &kp RIGHT  &trans
                         &trans  &trans  &trans                  &mkp LCLK  &mkp MCLK       &mkp RCLK
             >;
@@ -235,21 +237,13 @@
             >;
         };
 
-        nav_precision {
-            display-name = "NAV PRC";
-
-            // Active while precision key (D, pos 17) is held on top of NAV layer.
-            // Slow versions of the four mouse-move keys; everything else falls
-            // through to NAV layer (so PgUp/PgDn/Home/End/arrows/clicks still work).
-            //
-            // Default mouse speed in pointing.h is 1500. Here we use 600 (~40%)
-            // for precise pixel work — bump the magnitude if too slow.
-
+        extra_layer_2 {
+            display-name = "EXTRA 2";
             bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans               &mmv MOVE_VER(-600)  &trans              &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &mmv MOVE_HOR(-600)  &mmv MOVE_VER(600)   &mmv MOVE_HOR(600)  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans                  &trans  &trans               &trans               &trans              &trans  &trans
-                        &trans  &trans  &trans                  &trans  &trans               &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans                  &trans  &trans  &trans  &trans  &trans  &trans
+                        &trans  &trans  &trans                  &trans  &trans  &trans
             >;
         };
 

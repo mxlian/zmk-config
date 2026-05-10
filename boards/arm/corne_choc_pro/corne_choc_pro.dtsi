@@ -18,6 +18,15 @@
     transform = <&five_col_transform>;
 };
 
+// Mouse-move tuning. ZMK defaults: time-to-max-speed-ms=300, acceleration-exponent=1.
+// Doubling the ramp-up time gives finer control on short taps (precision)
+// while still reaching full speed when held — replaces the old precision sub-layer.
+&mmv {
+    delay-ms = <0>;
+    time-to-max-speed-ms = <600>;
+    acceleration-exponent = <1>;
+};
+
 / {
     chosen {
         zephyr,code-partition = &code_partition;
