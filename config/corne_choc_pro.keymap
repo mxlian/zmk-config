@@ -140,26 +140,24 @@
 
             // Mouse-T inverted on right hand:  I = mmv↑   J / K / L = mmv ← ↓ →
             // Vim row of arrows on right bottom:  M / , / . / / = ← ↓ ↑ →
-            // Page nav frames the mouse-T:  outer = PgUp/PgDn, inner = Home/End
+            // Right outer column: DEL / scroll↑ / scroll↓
             // Right thumbs: LCLK / MCLK / RCLK
             // Top-left  = TAB (replaces base ESC while NAV held)
             // Top-right = DEL (replaces base BSPC while NAV held)
             // HARDWARE layer is reached by holding LWR + RSE thumbs together
             // (conditional_layers), so no toggle key needed here.
-            // Mouse precision: cursor accelerates from a slow start; tap briefly
-            // for fine pixel movement, hold longer to fly across the screen
-            // (tuned via &mmv override in corne_choc_pro.dtsi).
+            // Mouse acceleration tuned via &mmv override in corne_choc_pro.dtsi.
             //
             // ---------------------------------------------------------------------------------------
-            // | TAB |  _  |  _  |  _  |  _  |  _  |       |       | PgUp |  _  | mmv↑ |  _  | PgDn | DEL |
-            // |  _  |  _  |  _  |  _  |  _  |  _  |       |       | Home | mmv←| mmv↓ | mmv→| End  |  _  |
-            // |  _  |  _  |  _  |  _  |  _  |  _  |               |  _   |  ←  |  ↓   |  ↑  |  →   |  _  |
-            //                   |  _  |  _  | LWR |               | LCLK | MCLK| RCLK |
+            // | TAB |  _  |  _  |  _  |  _  |  _  |       |       |  _  |  _  | mmv↑ |  _  |  _   |  DEL  |
+            // |  _  |  _  |  _  |  _  |  _  |  _  |       |       |  _  | mmv←| mmv↓ | mmv→|  _   | scrl↑ |
+            // |  _  |  _  |  _  |  _  |  _  |  _  |               |  _  |  ←  |  ↓   |  ↑  |  →   | scrl↓ |
+            //                   |  _  |  _  | LWR |               | LCLK| MCLK| RCLK |
 
             bindings = <
-&kp TAB  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &kp PG_UP  &trans          &mmv MOVE_UP    &trans           &kp PG_DN  &kp DELETE
-&trans   &trans  &trans  &trans  &trans  &trans  &trans  &trans  &kp HOME   &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &kp END    &trans
-&trans   &trans  &trans  &trans  &trans  &trans                  &trans     &kp LEFT        &kp DOWN        &kp UP           &kp RIGHT  &trans
+&kp TAB  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans     &trans          &mmv MOVE_UP    &trans           &trans     &kp DELETE
+&trans   &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans     &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &trans     &msc SCRL_UP
+&trans   &trans  &trans  &trans  &trans  &trans                  &trans     &kp LEFT        &kp DOWN        &kp UP           &kp RIGHT  &msc SCRL_DOWN
                          &trans  &trans  &trans                  &mkp LCLK  &mkp MCLK       &mkp RCLK
             >;
         };
@@ -175,7 +173,7 @@
 
             bindings = <
 &kp GRAVE  &kp NUMBER_1  &kp NUMBER_2  &kp N3        &kp NUMBER_4  &kp N5       &trans  &trans  &kp NUMBER_6      &kp N7             &kp N8        &kp N9                &kp N0                 &kp MINUS
-&kp TILDE  &kp EXCL      &kp AT_SIGN   &kp HASH      &kp DOLLAR    &kp PERCENT  &trans  &trans  &kp CARET         &kp AMPERSAND      &kp ASTERISK  &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp SINGLE_QUOTE
+&trans  &kp EXCL      &kp AT_SIGN   &kp HASH      &kp DOLLAR    &kp PERCENT  &trans  &trans  &kp CARET         &kp AMPERSAND      &kp ASTERISK  &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp SINGLE_QUOTE
 &trans     &trans        &trans        &trans        &trans        &trans                       &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &none         &none                 &kp EQUAL              &kp BACKSLASH
                                        &trans        &trans        &trans                       &trans            &trans             &trans
             >;
