@@ -172,9 +172,9 @@
             //                   |  _  |  _  | LWR |               | LCLK| MCLK| RCLK |
 
             bindings = <
-&kp TAB  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans     &trans          &mmv MOVE_UP    &trans           &trans     &kp DELETE
-&trans   &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans     &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &trans     &msc SCRL_UP
-&trans   &trans  &trans  &trans  &trans  &trans                  &trans     &kp LEFT        &kp DOWN        &kp UP           &kp RIGHT  &msc SCRL_DOWN
+&kp TAB  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &none     &none          &mmv MOVE_UP    &none           &none     &kp DELETE
+&trans   &trans  &trans  &trans  &trans  &trans  &trans  &trans  &none     &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &none     &msc SCRL_UP
+&trans   &trans  &trans  &trans  &trans  &trans                  &none     &kp LEFT        &kp DOWN        &kp UP           &kp RIGHT  &msc SCRL_DOWN
                          &trans  &trans  &trans                  &mkp LCLK  &mclk_scroll 5 MCLK  &mkp RCLK
             >;
         };
