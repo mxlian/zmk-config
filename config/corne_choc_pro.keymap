@@ -121,9 +121,17 @@
         // Tap both shifts together to activate Caps Word: next word is
         // shifted (auto-deactivates on space / enter / 5 sec idle).
         combo_caps_word {
-            timeout-ms = <40>;
+            timeout-ms = <200>;
             key-positions = <14 39>;
             bindings = <&caps_word>;
+            layers = <0>;
+        };
+
+        // ESC + Q → TAB (QWERTY layer only).
+        combo_esc_q_tab {
+            timeout-ms = <200>;
+            key-positions = <0 1>;
+            bindings = <&kp TAB>;
             layers = <0>;
         };
     };
