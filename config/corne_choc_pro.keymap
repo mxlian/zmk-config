@@ -173,7 +173,7 @@
             //                   |  _  |  _  | LWR |               | LCLK| MCLK| RCLK |
 
             bindings = <
-&kp TAB  &kp LS(TAB)  &trans  &trans  &trans  &trans  &trans  &trans  &kp LC(LS(TAB))     &kp LC(LS(TAB))  &mmv MOVE_UP    &kp LC(TAB)      &none     &kp DELETE
+&kp TAB  &kp LS(TAB)  &trans  &trans  &trans  &trans  &trans  &trans  &kp LC(W)     &kp LC(LS(TAB))  &mmv MOVE_UP    &kp LC(TAB)      &none     &kp DELETE
 &trans   &trans  &trans  &trans  &trans  &trans  &trans  &trans  &none     &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &none     &msc SCRL_UP
 &trans   &trans  &trans  &trans  &trans  &trans                  &none     &kp LEFT        &kp DOWN        &kp UP           &kp RIGHT  &msc SCRL_DOWN
                          &trans  &trans  &trans                  &mkp LCLK  &mclk_scroll 5 MCLK  &mkp RCLK
