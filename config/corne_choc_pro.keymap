@@ -165,7 +165,7 @@
 
             // Mouse-T inverted on right hand:  I = mmv↑   J / K / L = mmv ← ↓ →
             // Vim row of arrows on right bottom:  M / , / . / / = ← ↓ ↑ →
-            // Right outer column: DEL / scroll↑ / scroll↓
+            // Right outer column: DEL / HOME / END
             // Right thumbs: LCLK / MCLK / RCLK
             // Top-left  = TAB (replaces base ESC while NAV held)
             // Top-right = DEL (replaces base BSPC while NAV held)
@@ -182,8 +182,8 @@
 
             bindings = <
 &kp TAB  &kp LS(TAB)  &trans  &trans  &trans  &trans  &trans  &trans  &kp LC(W)     &kp LC(LS(TAB))  &mmv MOVE_UP    &kp LC(TAB)      &none     &kp DELETE
-&trans   &trans  &trans  &trans  &trans  &trans  &trans  &trans  &none     &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &none     &msc SCRL_UP
-&trans   &trans  &trans  &trans  &trans  &trans                  &none     &kp LEFT        &kp DOWN        &kp UP           &kp RIGHT  &msc SCRL_DOWN
+&trans   &trans  &trans  &trans  &trans  &trans  &trans  &trans  &none     &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &none     &kp HOME
+&trans   &trans  &trans  &trans  &trans  &trans                  &none     &kp LEFT        &kp DOWN        &kp UP           &kp RIGHT  &kp END
                          &trans  &trans  &trans                  &mkp LCLK  &mclk_scroll 5 MCLK  &mkp RCLK
             >;
         };
